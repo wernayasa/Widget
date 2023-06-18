@@ -1,0 +1,115 @@
+<style>
+.blogv2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.item-blog {
+  width: 100%;
+  display: grid;
+  cursor: default;
+  padding: 15px;
+  border-radius: 4px;
+  position: relative;
+  font-size: 12px;
+  line-height: 1.4;
+  background: rgb(255,255,255,.05);
+  margin-bottom: .5rem;
+grid-template-areas: 'p' 'd' 't' 'j';
+}
+.item-blog img {
+  max-width: 100%;
+}
+.item-blog .post-info {display: contents}
+.item-blog .gambar {
+  grid-area: t;
+}
+.item-blog h3 {
+  grid-area: j;
+font-size: 1rem;
+font-weight: 500;
+margin-top: .5rem;
+}
+.item-blog h3 a {color: white}
+.item-blog .pub {
+  grid-area: p;
+display: flex;
+gap: 4px;
+align-items: center;
+}
+.item-blog .desc {
+  grid-area: d;
+}
+.item-blog .pub span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.item-blog .pub span:nth-child(3) {
+  margin-inline-start: auto;
+}
+</style>
+<script type="text/javascript">
+  function mycallback(json) {
+    for (var i = 0; i < json.feed.entry.length; i++) {
+      var entry = json.feed.entry[i];
+      var postTitle = entry.title.$t;
+      var postSummary = entry.summary.$t.substr(0, 70) + '...';
+      var postUrl = "";
+
+      // Find the alternate URL
+      for (var j = 0; j < entry.link.length; j++) {
+        if (entry.link[j].rel === 'alternate') {
+          postUrl = entry.link[j].href;
+          break;
+        }
+      }
+
+      // Find the thumbnail URL
+      var thumbnailUrl = "";
+      if (entry.media$thumbnail) {
+        thumbnailUrl = entry.media$thumbnail.url.replace('s72-c', 's0');
+      }
+
+      var item = '<div class="item-blog">';
+      if (thumbnailUrl !== "") {
+        item += '<a class="gambar" href="' + postUrl + '"><img src="' + thumbnailUrl + '" alt="' + postTitle + '"></a>';
+      }
+      item += '<div class="post-info">';
+      item += '<h3><a href="' + postUrl + '">' + postTitle + '</a></h3>';
+
+ 
+        // SVG icon for Publisher
+      var publisherIcon = '<svg id="Layer_1" height="16px" fill="currentColor" viewBox="0 0 462 462" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">' +
+        '<path d="m231 229.91a72 72 0 1 1 72-72 72.08 72.08 0 0 1 -72 72zm0-124a52 52 0 1 0 52 52 52.06 52.06 0 0 0 -52-52z"/>' +
+        '<path d="m356 376.09a10 10 0 0 1 -10-10v-24.72a71.7 71.7 0 0 0 -71.62-71.62h-86.76a71.7 71.7 0 0 0 -71.62 71.62v24.72a10 10 0 0 1 -20 0v-24.72a91.73 91.73 0 0 1 91.62-91.62h86.75a91.73 91.73 0 0 1 91.63 91.62v24.72a10 10 0 0 1 -10 10z"/>' +
+        '</svg>';
+      // SVG icon for Date
+      var dateIcon = '<svg id="Expand" height="13px" fill="currentColor" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">' +
+  
+  '<path d="m8 .5a7.5 7.5 0 1 0 7.5 7.5 7.5083 7.5083 0 0 0 -7.5-7.5zm0 14a6.5 6.5 0 1 1 6.5-6.5 6.5075 6.5075 0 0 1 -6.5 6.5z"/>' + '<path d="m8.5 7.793v-3.793a.5.5 0 0 0 -1 0v4a.4993.4993 0 0 0 .1465.3535l2 2a.5.5 0 0 0 .707-.707z"/>' + '</svg>';
+      // SVG icon for Comment
+      var commentIcon = '<svg clip-rule="evenodd" height="15px" fill="currentColor" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 1.70666 1.70666" xmlns="http://www.w3.org/2000/svg">' + '<g id="Layer_x0020_1" fill-rule="nonzero">' + '<path d="m.303331.420972c-.0294528 0-.0533346.0238819-.0533346.0533346 0 .0294528.0238819.0533346.0533346.0533346h.770142c.0294528 0 .0533346-.0238819.0533346-.0533346 0-.0294528-.0238819-.0533346-.0533346-.0533346z"/>' + '<path d="m.303331.650839c-.0294528 0-.0533346.0238819-.0533346.0533346 0 .0294528.0238819.0533346.0533346.0533346h1.10001c.0294528 0 .0533346-.0238819.0533346-.0533346 0-.0294528-.0238819-.0533346-.0533346-.0533346z"/>' + '<path d="m.303331.880705c-.0294528 0-.0533346.0238819-.0533346.0533346 0 .0294528.0238819.0533346.0533346.0533346h1.09306c.0294528 0 .0533346-.0238819.0533346-.0533346 0-.0294528-.0238819-.0533346-.0533346-.0533346z"/>' + '<path d="m1.37188 1.2539-.297535.313252c-.0202874.0213465-.0540512.0222047-.0753976.00191732-.00700394-.00665354-.0117953-.0147598-.0143661-.0234016l-.109984-.291768h-.673835c-.110531 0-.20076-.0902283-.20076-.20076v-.729472c0-.110528.0902323-.200764.20076-.200764h1.30515c.110528 0 .200764.0902362.200764.200764v.729472c0 .110528-.0902362.20076-.200764.20076h-.134028zm-.316323.17839.252417-.265583c.00978346-.0118937.0246102-.0194764.0412087-.0194764h.156724c.0516457 0 .0940945-.0424409.0940945-.0940906v-.729472c0-.0516496-.0424449-.0940945-.0940945-.0940945h-1.30515c-.0516496 0-.0940906.0424488-.0940906.0940945v.729472c0 .0516496.0424409.0940906.0940906.0940906h.709701c.0218858-.00036221.0426299.0128701.0507913.0345236l.0943031.250535z"/>' + '</g>' + '</svg>';
+    
+      
+      // Get publisher, date, and comment count
+      var publisher = entry.author[0].name.$t;
+      var date = new Date(entry.published.$t);
+      var formattedDate = date.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' });
+      var commentCount = entry.thr$total.$t;
+
+      item += '<div class="pub"> <span>'+ publisherIcon + ' ' + publisher + '  </span>  ';
+
+      item += '<span>'+ dateIcon +' ' + formattedDate + '   </span>';
+      item += ' <span>'+ commentIcon + ' ' + commentCount + '</span></div>';
+
+      item += '<p class="desc">' + postSummary + '</p>';
+      item += '</div>'; // Close post-info div
+      item += '</div>'; // Close wrapper div
+      item += ''; // Divider line
+
+      document.write(item);
+    }
+  }
+</script>
+<script src="https://emissionhex.blogspot.com/feeds/posts/summary/-/Tema?max-results=3&alt=json-in-script&callback=mycallback"></script>
