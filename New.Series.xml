@@ -97,12 +97,13 @@
 .ipF:last-child{border:0;}
 .ipF img{border-radius:3px;}
 .e4v{display:flex;flex-wrap:wrap;column-gap:4px;}
-.vAX h3{margin-bottom:3px;}
+.vAX h3{margin-bottom:3px;margin-top:0;font-size:14px;}
 .vAX h3 a{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--lc);}
 .YM4{display:flex;gap:4px;align-items:center;}
 .YM4 svg{width:14px;height:14px;color:var(--accent);}
 .e4v,.YM4{font-size:90%;}
 .e4v a{opacity:70%;}
+.ipF img{width:100%;height:auto;}
       </style>
       <b:tag class='widget-content' name='div'>
         <b:attr name='id' value='new_Series'/>
