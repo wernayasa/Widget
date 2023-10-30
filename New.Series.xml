@@ -1,0 +1,183 @@
+<b:widget id='LinkList3' locked='false' title='New Series' type='LinkList' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='text-30'>Shounen</b:widget-setting>
+      <b:widget-setting name='text-31'>Slice of Life</b:widget-setting>
+      <b:widget-setting name='text-32'>Sports</b:widget-setting>
+      <b:widget-setting name='link-38'>search/label/Vampire</b:widget-setting>
+      <b:widget-setting name='text-26'>School Life</b:widget-setting>
+      <b:widget-setting name='link-35'>search/label/Tragedy</b:widget-setting>
+      <b:widget-setting name='text-27'>Sci-Fi</b:widget-setting>
+      <b:widget-setting name='link-34'>search/label/Thriller</b:widget-setting>
+      <b:widget-setting name='text-28'>Seinen</b:widget-setting>
+      <b:widget-setting name='link-37'>search/label/Vampire</b:widget-setting>
+      <b:widget-setting name='text-29'>Shoujo</b:widget-setting>
+      <b:widget-setting name='link-36'>search/label/Vampire</b:widget-setting>
+      <b:widget-setting name='text-22'>Music</b:widget-setting>
+      <b:widget-setting name='link-31'>search/label/Slice of Life</b:widget-setting>
+      <b:widget-setting name='text-23'>Mystery</b:widget-setting>
+      <b:widget-setting name='link-30'>search/label/Shounen</b:widget-setting>
+      <b:widget-setting name='text-24'>Psychological</b:widget-setting>
+      <b:widget-setting name='link-33'>search/label/Supernatural</b:widget-setting>
+      <b:widget-setting name='text-25'>Romance</b:widget-setting>
+      <b:widget-setting name='link-32'>search/label/Sports</b:widget-setting>
+      <b:widget-setting name='text-9'>Historical</b:widget-setting>
+      <b:widget-setting name='text-8'>Harem</b:widget-setting>
+      <b:widget-setting name='text-20'>Medical</b:widget-setting>
+      <b:widget-setting name='text-21'>Military</b:widget-setting>
+      <b:widget-setting name='text-1'>Max</b:widget-setting>
+      <b:widget-setting name='text-0'>Label</b:widget-setting>
+      <b:widget-setting name='text-3'>Cooking</b:widget-setting>
+      <b:widget-setting name='text-2'>Comedy</b:widget-setting>
+      <b:widget-setting name='text-5'>Ecchi</b:widget-setting>
+      <b:widget-setting name='text-4'>Drama</b:widget-setting>
+      <b:widget-setting name='text-7'>Game</b:widget-setting>
+      <b:widget-setting name='text-6'>Fantasy</b:widget-setting>
+      <b:widget-setting name='text-19'>Mecha</b:widget-setting>
+      <b:widget-setting name='text-15'>Manhwa</b:widget-setting>
+      <b:widget-setting name='text-16'>Martial Arts</b:widget-setting>
+      <b:widget-setting name='text-17'>Mature</b:widget-setting>
+      <b:widget-setting name='text-18'>Mecha</b:widget-setting>
+      <b:widget-setting name='text-11'>Isekai</b:widget-setting>
+      <b:widget-setting name='text-12'>Josei</b:widget-setting>
+      <b:widget-setting name='text-13'>Magic</b:widget-setting>
+      <b:widget-setting name='text-14'>Manhua</b:widget-setting>
+      <b:widget-setting name='text-10'>Horror</b:widget-setting>
+      <b:widget-setting name='link-17'>/search/label/Mature</b:widget-setting>
+      <b:widget-setting name='link-16'>/search/label/Martial Arts</b:widget-setting>
+      <b:widget-setting name='link-19'>/search/label/Mecha</b:widget-setting>
+      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+      <b:widget-setting name='link-18'>/search/label/Mecha</b:widget-setting>
+      <b:widget-setting name='link-1'>6</b:widget-setting>
+      <b:widget-setting name='link-13'>/search/label/Magic</b:widget-setting>
+      <b:widget-setting name='link-2'>/search/label/Comedy</b:widget-setting>
+      <b:widget-setting name='link-12'>/search/label/Josei</b:widget-setting>
+      <b:widget-setting name='link-15'>/search/label/Manhwa</b:widget-setting>
+      <b:widget-setting name='link-0'>Series</b:widget-setting>
+      <b:widget-setting name='link-14'>/search/label/Manhua</b:widget-setting>
+      <b:widget-setting name='link-11'>/search/label/Isekai</b:widget-setting>
+      <b:widget-setting name='link-10'>/search/label/Horror</b:widget-setting>
+      <b:widget-setting name='link-9'>/search/label/Historical</b:widget-setting>
+      <b:widget-setting name='link-7'>/search/label/Game</b:widget-setting>
+      <b:widget-setting name='link-8'>/search/label/Harem</b:widget-setting>
+      <b:widget-setting name='link-5'>/search/label/Ecchi</b:widget-setting>
+      <b:widget-setting name='link-6'>/search/label/Fantasy</b:widget-setting>
+      <b:widget-setting name='link-3'>/search/label/Cooking</b:widget-setting>
+      <b:widget-setting name='link-4'>/search/label/Drama</b:widget-setting>
+      <b:widget-setting name='link-28'>search/label/Seinen</b:widget-setting>
+      <b:widget-setting name='link-27'>search/label/Sci-Fi</b:widget-setting>
+      <b:widget-setting name='link-29'>search/label/Shoujo</b:widget-setting>
+      <b:widget-setting name='link-24'>search/label/Psychological</b:widget-setting>
+      <b:widget-setting name='text-37'>Vampire</b:widget-setting>
+      <b:widget-setting name='link-23'>/search/label/Mystery</b:widget-setting>
+      <b:widget-setting name='text-38'>Vampire</b:widget-setting>
+      <b:widget-setting name='link-26'>search/label/School Life</b:widget-setting>
+      <b:widget-setting name='link-25'>search/label/Romance</b:widget-setting>
+      <b:widget-setting name='link-20'>/search/label/Medical</b:widget-setting>
+      <b:widget-setting name='text-33'>Supernatural</b:widget-setting>
+      <b:widget-setting name='text-34'>Thriller</b:widget-setting>
+      <b:widget-setting name='link-22'>/search/label/Music</b:widget-setting>
+      <b:widget-setting name='text-35'>Tragedy</b:widget-setting>
+      <b:widget-setting name='link-21'>/search/label/Military</b:widget-setting>
+      <b:widget-setting name='text-36'>Vampire</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <b:include name='widget-title'/>
+      <b:include name='content'/>
+    </b:includable>
+    <b:includable id='content'>
+      <style>
+.loaderKu{width:48px;height:48px;border:5px solid #ff6740;border-bottom-color:transparent;border-radius:50%;display:inline-block;box-sizing:border-box;animation:rotation 1s linear infinite;}
+@keyframes rotation{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.relative.h-56.overflow-hidden.lg\:h-80.xl\:h-96:after{content:&#39;&#39;;background-color:rgba(0,0,0,.7);width:100%;height:100%;display:block;position:absolute;}
+#new_Series .owl-nav button{outline:none;position:absolute;border:none!important;color:#333!important;background:hsla(0,0%,100%,.6)!important;top:50%;transform:translateY(-50%);border-radius:10px;width:40px;height:40px;line-height:40px;font-size:50px!important;}
+#new_Series{--border:rgb(245 245 245 / 1);--lc:2;--hl:#ffdd95;}
+.dark #new_Series{--border:rgb(64 64 64 / 1);}
+#new_Series a:hover{color:var(--hl);}
+.ipF{display:grid;padding:12px 15px;grid-template-columns:minmax(20px,58px) 1fr;gap:10px;border-bottom:1px solid var(--border);}
+.ipF:last-child{border:0;}
+.ipF img{border-radius:3px;}
+.e4v{display:flex;flex-wrap:wrap;column-gap:4px;}
+.vAX h3{margin-bottom:3px;}
+.vAX h3 a{overflow:hidden;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--lc);}
+.YM4{display:flex;gap:4px;align-items:center;}
+.YM4 svg{width:14px;height:14px;color:var(--accent);}
+.e4v,.YM4{font-size:90%;}
+.e4v a{opacity:70%;}
+      </style>
+      <b:tag class='widget-content' name='div'>
+        <b:attr name='id' value='new_Series'/>
+        <b:loop values='data:links' var='link'>
+          <b:attr cond='data:link.name == &quot;Label&quot;' expr:value='data:link.target' name='data-label'/>
+          <b:attr cond='data:link.name == &quot;Max&quot;' expr:value='data:link.target' name='data-max'/>
+        </b:loop>
+        <b:tag name='span'>
+          <b:class name='flex items-center justify-center p-3'/>
+          <b:tag name='span'>
+            <b:class name='loaderKu'/>
+          </b:tag>
+        </b:tag>
+      </b:tag>
+
+  <script defer='defer'>/*<![CDATA[*/
+    let newSeries = new BloggerScript({
+      noImage: 'https://1.bp.blogspot.com/-XSp30PahyTM/YK37Rq_-M7I/AAAAAAAABCc/01K0sUhw-2YI7vr48wqMIAVoMLDEUdK2gCLcBGAsYHQ/s0/No%2BImage%2BBerkas%2BKita.jpg',
+      sizeImage: 's140-rw'
+    })
+        ax = document.querySelector('#new_Series');
+    function getnewSeries(e) {
+      let entry = newSeries.getFeed(e);
+      let html = '<div class="ns">';
+      entry.forEach(item => {
+
+        if ('content' in item) {
+          let newDiv = document.createElement('div');
+          newDiv.innerHTML = item.content;
+          let elSynopsis = newDiv.querySelector('#synopsis');
+          synopsis = elSynopsis ? elSynopsis.innerText.slice(0, 200) : 'No Synopsis';
+        }
+
+        let filterGenre = ['Action','Adventure','Avant Garde','Award Winning','Boys Love','Comedy','Drama','Fantasy','Girls Love','Gourmet','Horror','Mystery','Romance','Sci-Fi','Slice of Life','Sports','Supernatural','Suspense','Ecchi','Erotica','Hentai','Adult Cast','Anthropomorphic','CGDCT','Childcare','Combat Sports','Crossdressing','Delinquents','Detective','Educational','Gag Humor','Gore','Harem','High Stakes Game','Historical','Idols (Female)','Idols (Male)','Isekai','Iyashikei','Love Polygon','Magical Sex Shift','Mahou Shoujo','Martial Arts','Mecha','Medical','Memoir','Military','Music','Mythology','Organized Crime','Otaku Culture','Parody','Performing Arts','Pets','Psychological','Racing','Reincarnation','Reverse Harem','Romantic Subtext','Samurai','School','Showbiz','Space','Strategy Game','Super Power','Survival','Team Sports','Time Travel','Vampire','Video Game','Villainess','Visual Arts','Workplace','Josei','Kids','Seinen','Shoujo','Shounen'];
+        let filterEpisode = item.label.find(i => ["Ep","Episode","EP."].some(e => i.includes(e))) || "Ep.0";
+        let filterScore = item.label.find(i => /^\d+(\.\d{1,2})$/.test(i)) || '0.0';
+
+        html += `<div class="ipF">
+              <a href="${item.link}">
+                <img src="${item.image}" alt="${item.title}" />
+              </a>
+            <div class="vAX">
+              <h3>
+                <a title="${item.title}" href="${item.link}">${item.title}</a>
+              </h3>
+              <div class="E8t">`;
+                if (item.label.some(i => filterGenre.includes(i))) {
+                  let filter = item.label.filter(i => filterGenre.includes(i));
+                  html += `<div class="e4v"><b>Genres:</b>`;
+                  filter.forEach((label, indexz) => {
+                    html += `<a href="/search/label/${label}">${label}</a>`;
+                  })
+                  html += `</div>`;
+                }
+              html += `<div class="YM4">
+                <span>${filterEpisode}</span>
+                <div class="flex items-center gap-1">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20"><path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" /></svg>
+                  ${filterScore}
+                </div>
+              </div></div>
+            </div>
+
+        </div>`;
+      });
+      if (ax) {
+        ax.innerHTML = `${html} </div>`;
+        ow();
+      }
+    }
+    if (ax) {
+      let dataLabel = ax.dataset.label || false,
+          dataMax = ax.dataset.max || false;
+      newSeries.xhr('GET', `/feeds/posts/default${dataLabel == false ? '' : `/-/${dataLabel}`}?alt=json-in-script&max-results=${dataMax == false ? '6' : `${dataMax}`}`, getnewSeries);
+    }
+  /*]]>*/</script>
+    </b:includable>
+  </b:widget>
