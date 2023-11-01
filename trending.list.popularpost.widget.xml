@@ -23,3 +23,190 @@
 .swiper-container{margin:0 auto;position:relative;overflow:hidden;z-index:1;}
 @media screen and (max-width:768px){.trending-list .item .number span{font-size:18px;line-height:30px;transform:none;text-align:center;color:#111;}.carousel .carousel__content{gap:15px;padding-inline-end:0;}.trending-list .post{width:140px;}.trending-list .post-content{padding-bottom:130%;}.trending-list .item .number{bottom:auto;top:0;right:auto;width:40px;left:0;height:30px;background:#fff;z-index:9;}.trending-list .item .film-poster{left:0;top:0;bottom:0;}.trending-navi{display:none;}}
 @media screen and (max-width:568px){.carousel .carousel__content{gap:5px;}.trending-list .post{width:125px;}}
+
+<b:widget id='PopularPosts2' locked='false' title='Trending' type='PopularPosts' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='numItemsToShow'>10</b:widget-setting>
+      <b:widget-setting name='showThumbnails'>true</b:widget-setting>
+      <b:widget-setting name='showSnippets'>true</b:widget-setting>
+      <b:widget-setting name='timeRange'>LAST_YEAR</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='this'>
+      <b:class name='carousel'/>
+      <section class='trending-list carousel__wrapper has-arrows'>
+        <div class='carousel__header'>
+          <h2 class='carousel__headline'><data:title/></h2>
+        </div>
+        <div class='swiper-container'>
+          <b:include name='snippetedPosts'/>
+          <div class='carousel__controls trending-navi'>
+            <button class='carousel__arrow disabled arrow-prev'/>
+            <button class='carousel__arrow arrow-next'/>
+          </div>
+        </div>
+      </section>
+      <script>
+/*<![CDATA[*/
+window.addEventListener( 'load', () => {
+	const COMPONENT_SELECTOR = '.carousel__wrapper';
+	const CONTROLS_SELECTOR = '.carousel__controls';
+  const CONTENT_SELECTOR = '.carousel__content';
+
+	const components = document.querySelectorAll( COMPONENT_SELECTOR );
+
+	for ( let i = 0; i < components.length; i++ ) {
+		const component = components[ i ];
+		const content = component.querySelector( CONTENT_SELECTOR );
+		let x = 0;
+		let mx = 0;
+		const maxScrollWidth = content.scrollWidth - content.clientWidth / 2 - content.clientWidth / 2;
+		const nextButton = component.querySelector( '.arrow-next' );
+		const prevButton = component.querySelector( '.arrow-prev' );
+
+		if ( maxScrollWidth !== 0 ) {
+			component.classList.add( 'has-arrows' );
+		}
+
+		if ( nextButton ) {
+			nextButton.addEventListener( 'click', function ( event ) {
+				event.preventDefault();
+				x = content.clientWidth / 2 + content.scrollLeft + 0;
+				content.scroll( {
+					left: x,
+					behavior: 'smooth',
+				} );
+			} );
+		}
+
+		if ( prevButton ) {
+			prevButton.addEventListener( 'click', function ( event ) {
+				event.preventDefault();
+				x = content.clientWidth / 2 - content.scrollLeft + 0;
+				content.scroll( {
+					left: -x,
+					behavior: 'smooth',
+				} );
+			} );
+		}
+
+		/**
+		 * Mouse move handler.
+		 *
+		 * @param {object} e event object.
+		 */
+		const mousemoveHandler = ( e ) => {
+			const mx2 = e.pageX - content.offsetLeft;
+			if ( mx ) {
+				content.scrollLeft = content.sx + mx - mx2;
+			}
+		};
+
+		/**
+		 * Mouse down handler.
+		 *
+		 * @param {object} e event object.
+		 */
+		const mousedownHandler = ( e ) => {
+			content.sx = content.scrollLeft;
+			mx = e.pageX - content.offsetLeft;
+			content.classList.add( 'dragging' );
+		};
+
+		/**
+		 * Scroll handler.
+		 */
+		const scrollHandler = () => {
+			toggleArrows();
+		};
+
+		/**
+		 * Toggle arrow handler.
+		 */
+		const toggleArrows = () => {
+			if ( content.scrollLeft > maxScrollWidth - 10 ) {
+				nextButton.classList.add( 'disabled' );
+			} else if ( content.scrollLeft < 10 ) {
+				prevButton.classList.add( 'disabled' );
+			} else {
+				nextButton.classList.remove( 'disabled' );
+				prevButton.classList.remove( 'disabled' );
+			}
+		};
+
+		/**
+		 * Mouse up handler.
+		 */
+		const mouseupHandler = () => {
+			mx = 0;
+			content.classList.remove( 'dragging' );
+		};
+
+		content.addEventListener( 'mousemove', mousemoveHandler );
+		content.addEventListener( 'mousedown', mousedownHandler );
+		if ( component.querySelector( CONTROLS_SELECTOR ) !== undefined ) {
+			content.addEventListener( 'scroll', scrollHandler );
+		}
+		content.addEventListener( 'mouseup', mouseupHandler );
+		content.addEventListener( 'mouseleave', mouseupHandler );
+	}
+} );
+/*]]>*/
+</script>
+</b:includable>
+    <b:includable id='blogThisShare'/>
+    <b:includable id='bylineByName' var='byline'/>
+    <b:includable id='bylineRegion' var='regionItems'/>
+    <b:includable id='commentsLink'/>
+    <b:includable id='commentsLinkIframe'/>
+    <b:includable id='emailPostIcon'/>
+    <b:includable id='facebookShare'/>
+    <b:includable id='footerBylines'/>
+    <b:includable id='googlePlusShare'/>
+    <b:includable id='headerByline'/>
+    <b:includable id='linkShare'/>
+    <b:includable id='otherSharingButton'/>
+    <b:includable id='platformShare'/>
+    <b:includable id='postAuthor'/>
+    <b:includable id='postCommentsLink'/>
+    <b:includable id='postJumpLink' var='post'/>
+    <b:includable id='postLabels'/>
+    <b:includable id='postLocation'/>
+    <b:includable id='postReactions'/>
+    <b:includable id='postShareButtons'/>
+    <b:includable id='postTimestamp'/>
+    <b:includable id='sharingButton'/>
+    <b:includable id='sharingButtonContent'/>
+    <b:includable id='sharingButtons'/>
+    <b:includable id='sharingButtonsMenu'/>
+    <b:includable id='sharingPlatformIcon'/>
+    <b:includable id='snippetedPostByline'/>
+    <b:includable id='snippetedPostContent'>
+  <div class='post-content carousel__item'>
+    <b:include cond='data:this.postDisplay.showTitle' name='snippetedPostTitle'/>
+    <b:include cond='data:this.postDisplay.showFeaturedImage and data:post.featuredImage' name='snippetedPostThumbnail'/>
+  </div>
+</b:includable>
+    <b:includable id='snippetedPostThumbnail'>
+    <a class='film-poster' draggable='false' expr:href='data:post.url'>
+      <b:include data='{                         image: data:post.featuredImage,                         imageSizes: [156, 225],                         imageRatio: &quot;1:2&quot;,                         sourceSizes: &quot;225px&quot;                        }' name='responsiveImage'/>
+    </a>
+</b:includable>
+    <b:includable id='snippetedPostTitle'>
+      <b:if cond='data:post.title != &quot;&quot;'>
+      <div class='number'>
+        <span/>
+        <h3 class='film-title dynamic-name'><data:post.title/></h3>
+      </div>
+  </b:if>  
+</b:includable>
+    <b:includable id='snippetedPosts'>
+  <div class='items carousel__content' role='feed'>
+    <!-- Don't render the post that we're currently already looking at. -->
+    <b:loop values='data:posts filter (p =&gt; p.id != data:view.postId)' var='post'>
+      <article class='post item' role='article'>
+        <b:include name='snippetedPostContent'/>
+      </article>
+    </b:loop>
+  </div>
+</b:includable>
+  </b:widget>
