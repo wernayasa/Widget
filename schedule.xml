@@ -1,3 +1,10 @@
+# Paste CSS above /b:skin
+#hari{display:flex;flex-wrap:wrap;margin-bottom:20px;text-align:center;list-style:none;justify-content:space-between;padding:0;border-radius:4px;overflow:hidden;background-color:#1c1c1c}
+#hari li{line-height:20px;overflow:hidden;flex-grow:1}
+#hari li button{width:100%;padding:10px;color:white}
+#hari .text-blue-600{background-color:var(--primary)}
+#jadwal .hidden{display:none}
+
 # Paste above </head> if it already exists, skip it
 
 <script defer='defer' type='text/javascript'>/*<![CDATA[*/
