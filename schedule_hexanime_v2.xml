@@ -1,0 +1,104 @@
+<b:widget cond='data:view.isHomepage or data:blog.isMobileRequest' id='HTML51' locked='true' title='Schedule' type='HTML' version='2' visible='true'>
+    <b:widget-settings>
+      <b:widget-setting name='content'>Jadwal</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main'>
+      <b:class cond='data:blog.isMobileRequest' name='fixed z-40 w-full overflow-y-auto bg-white/50 border-t border-neutral-200 rounded-t-lg dark:border-neutral-700 dark:bg-neutral-800/50 transition-transform backdrop-blur bottom-0 left-0 right-0 translate-y-full'/>
+      <b:attr cond='data:blog.isMobileRequest' name='aria-labelledby' value='search-swipe-label'/>
+      <b:attr cond='data:blog.isMobileRequest' name='tabindex' value='-1'/>
+
+      <div class='flex items-center justify-between wrap px-2'><h2 class='title'><data:title/></h2><time class='max-md:hidden rounded-full bg-white text-zinc-900 px-2 py-1 font-bold' id='time'/></div>
+      <section class='p-4' id='jadwalRilis'/>
+      <script defer='defer'>
+/*<![CDATA[*/
+ let jadwalRilisRun = new BloggerScript({
+      noImage: 'https://1.bp.blogspot.com/-XSp30PahyTM/YK37Rq_-M7I/AAAAAAAABCc/01K0sUhw-2YI7vr48wqMIAVoMLDEUdK2gCLcBGAsYHQ/s0/No%2BImage%2BBerkas%2BKita.jpg',
+      sizeImage: 's370-rw'
+    });
+
+(function () {
+  const customFormat = (date) => {
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    const amPm = hours >= 12 ? 'PM' : 'AM';
+
+    const timeString = hours + ':' + minutes + ' ' + amPm;
+
+    return timeString;
+  };
+
+
+  let a = document,
+    b = window,
+    jadwalRilis = a.getElementById('jadwalRilis'),
+    days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+    day = new Date().getDay(),
+    sortedDays = days.slice(day).concat(days.slice(0, day));
+  if (!jadwalRilis) {
+    return;
+  }
+
+  let html = `<div class='days mb-4'><ul class='flex flex-wrap -mb-px text-sm font-medium text-center justify-evenly overflow-hidden gap-3.5' id='hari' data-tabs-toggle='#jadwal' role='tablist'>`,
+    html2 = `<div id='jadwal' class='items'>`;
+  sortedDays.forEach((item, index) => {
+    let valu = item.toLowerCase();
+    let check = index == 0 ? 'true' : 'false';
+    html += `<li class='overflow-hidden grow leading-6 lg:leading-9 rounded-md max-md:w-[30%]' role='presentation'><button class='bg-white shadow dark:bg-neutral-800 inline-block w-full py-2.5 px-1.5 aria-selected:text-neutral-900 aria-selected:dark:text-neutral-900' id='${valu}-tab' data-tabs-target='#${valu}' type='button' role='tab' aria-controls='${valu}' aria-selected='${check}'>${item}</button></li>`;
+    html2 += `<div class='timeline grid grid-cols-[repeat(auto-fill,minmax(130px,1fr))] lg:grid-cols-[repeat(auto-fill,minmax(206px,1fr))] auto-cols-[minmax(204px,1fr)] lg:p-0 gap-1 md:gap-2 lg:gap-4 hidden' id='${valu}' role='tabpanel' aria-labelledby='${valu}-tab'></div>`;
+  });
+  jadwalRilis.innerHTML = `${html}</ul></div>${html2}</div>`;
+
+  sortedDays.forEach((item, index) => {
+    let valu = item.toLowerCase();
+    a.getElementById(`${valu}-tab`).addEventListener('click', (e) => {
+      currentTar = e.currentTarget;
+      if (currentTar.classList.contains('itemExist')) {
+        return;
+      }
+      currentTar.classList.add('itemExist');
+      a.getElementById(valu).innerHTML = '<p>Loading...</p>';
+
+      /*
+      Catatan
+      url: https://www.blogger.com/feeds/9023265581606716045 
+      bisa di ganti dengan 
+      url: https://anime-la-bt.blogspot.com/feeds 
+      */
+      jadwalRilisRun.xhr(`/feeds/9023265581606716045/posts/default/-/${item.replace(/\&amp;/g,"&").replace(/\//g,"%2F")}?alt=json-in-script&max-results=150`, (e) => {
+        if ('entry' in e.feed) {
+          let feeds = jadwalRilisRun.getFeed(e),
+            html = ``;
+
+          feeds.forEach(item => {
+            let epsName = item.label.find(i => i.match(/^Ep\s[0-9]{1}/gm)) || 'N/A',
+              tipeName = item.label.find(i => ['TV', 'Movie', 'OVA', 'ONA'].includes(i)) || 'N/A',
+              timeName = customFormat(new Date(item.updated)),
+              timeNamev2 = item.label.find(i => i.match(/[0-9]{2}:[0-9]{2}/)) || timeName;
+            html += `<div class='item'><a class='block relative w-full group pb-[130%]' href="${item.link}"><div class='absolute z-10 start-[10px] bottom-[10px] px-2 truncate'><div class='tick'><span class='tick-item tick-pg'>${timeNamev2}</span><span class='tick-item tick-sub'>${epsName}</span><span class='dot'></span><span class='fdi-item'>${tipeName}</span></div></div>
+                <img class='absolute inset-0 object-cover w-full h-full' src="${item.image}" alt="${item.title}" />
+              </a><div class='p-2'><a href='${item.link}' class='text-sm line-clamp-2 font-medium leading-snug lg:leading-normal min-h-[42px]' title='${item.title}'>`;
+            html += `${item.title}</a></div></div>`;
+          });
+          a.getElementById(valu).innerHTML = html;
+        } else {
+          a.getElementById(valu).innerHTML = '<p>Nothing Post</p>';
+        }
+      })
+    });
+    if (index == 0) {
+      a.getElementById(`${valu}-tab`).click();
+    }
+  });
+})();
+/*]]>*/
+</script>
+      <script defer='defer'>var d = new Date();
+document.getElementById(&quot;time&quot;).innerHTML = d;</script>
+</b:includable>
+  </b:widget>
