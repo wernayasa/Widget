@@ -1,0 +1,288 @@
+<!-- 
+https://www.rasgane.com/2024/05/material-slider-manga-reader-menggunakan-html-css-dan-swiperjs.html
+-->
+
+<!-- Link Swiper's CSS -->
+<link href='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css' rel='stylesheet'>
+<!-- Swiper JS -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js'></script>
+
+/* Slider */
+#LinkList111{overflow:hidden}
+#LinkList111{max-width:1200px;margin: 30px auto auto}
+  .slider_Manga_Reader{}
+  .slider_Manga_Reader .box_item{position:relative;overflow:hidden;background:#20152d;padding-bottom:35%}
+  .slider_Manga_Reader .box_item .bg_item{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;opacity:.4}
+  .slider_Manga_Reader .box_item .bg_item img{position:absolute;object-fit:cover;width:120%;height:120%;top:-10%;left:-10%;opacity:1;filter:blur(8px)}
+  .slider_Manga_Reader .box_item .poster_item{position:absolute;top:-130px;left:650px;width:400px;transform:scale(1.2)}
+  .swiper-fade .swiper-slide-active .poster_item{top:-100px;transform:scale(1)}
+  .slider_Manga_Reader .box_item .poster_item a{display:inline-block;transform:rotate(15deg);border:20px solid #fff;box-shadow:0 30px 30px rgba(0,0,0,.2);width:100%;padding-bottom:148%;position:relative;overflow:hidden;background:#eee}
+  .slider_Manga_Reader .box_item .poster_item img{position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;right:0;bottom:0}
+  .slider_Manga_Reader .box_item .content_item{max-width:600px;width:100%;position:absolute;top:50%;transform:translateY(-50%);left:30px;z-index:3;color:#fff;padding:0 30px}
+  .slider_Manga_Reader .box_item .content_item .content_item_chapter{font-size:18px;line-height:1.3em;font-weight:600;margin-bottom:5px}
+  .slider_Manga_Reader .box_item .content_item .content_item_title{font-size:32px;line-height:1.3;font-weight:600;margin-bottom:15px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .slider_Manga_Reader .box_item .content_item .content_item_title a{color:#fff}
+  .slider_Manga_Reader .box_item .content_item .content_item_details{font-size:1em;display:block;font-weight:400;margin-bottom:30px}
+  .slider_Manga_Reader .box_item .content_item .content_item_details > *{margin-bottom:1em;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+  .slider_Manga_Reader .box_item .content_item .content_item_details .content_item_details_genre span{display:inline-block;margin:0 3px 6px 0;border:1px solid rgba(255,255,255,.5);padding:.3rem .5rem;line-height:1;border-radius:.2rem;font-size:.8em}
+  .slider_Manga_Reader .box_item .content_item .content_item_buttons > *{display:inline-block;background:#fff;color:#111;font-weight:500;font-size:14px;line-height:40px;padding:0 20px;border-radius:4px}
+  .slider_Manga_Reader .box_item .content_item .content_item_buttons .content_item_buttons_read{background:#ffd702}
+  .boox_bt{position:absolute;bottom:40px;z-index:1;right:40px}
+  .swiper-button{display:flex;align-items:center;justify-content:center;background:#fff;color:#111;width:40px;height:40px;line-height:40px;border-radius:50%;font-size:16px;text-align:center;margin:0 5px;float:right;cursor:pointer}
+  .swiper-button svg{display:block;width:20px;height:20px}
+
+@media only screen and (max-width: 900px) {
+  .slider_Manga_Reader .box_item .content_item .content_item_chapter,.slider_Manga_Reader .box_item .content_item .content_item_details .content_item_details_genre{display:none}
+  .slider_Manga_Reader .box_item .content_item{max-width:460px}
+  .slider_Manga_Reader .box_item .poster_item{left:460px;transform:scale(1);top:-130px}
+  .swiper-fade .swiper-slide-active .poster_item{transform:scale(1);top:-130px}
+  .boox_bt{display:none}
+}
+@media only screen and (max-width: 768px) {
+  .slider_Manga_Reader .box_item .poster_item{left:400px}
+  .slider_Manga_Reader .box_item .content_item{max-width:400px}
+  .slider_Manga_Reader .box_item .content_item .content_item_details{display:none}
+}
+@media only screen and (max-width: 540px) {
+  .slider_Manga_Reader .box_item{padding-bottom:50%}
+  .slider_Manga_Reader .box_item .content_item .content_item_title{font-size:18px;margin-bottom:.75rem}
+  .slider_Manga_Reader .box_item .content_item .content_item_buttons > *{margin-top:5px;min-width:83px;line-height:30px;padding:0 10px;font-size:12px;text-align:center}
+  .slider_Manga_Reader .box_item .poster_item a{border:10px solid #fff}
+  .slider_Manga_Reader .box_item .content_item{max-width:250px;left:0}
+  .slider_Manga_Reader .box_item .poster_item{width:210px;right:auto;left:250px;top:-35px!important;transform:scale(1)}
+  .swiper-fade .swiper-slide-active .poster_item{top:-35px!important;transform:scale(1)}
+}
+@media only screen and (max-width: 320px) {
+  .slider_Manga_Reader .box_item .poster_item{left:160px}
+  .slider_Manga_Reader .box_item .content_item{max-width:200px}
+}
+
+<b:widget id='LinkList111' locked='true' title='Custom Post Slider V2' type='LinkList' version='2' visible='true'>
+   <b:widget-settings>
+      <b:widget-setting name='text-30'>Shounen</b:widget-setting>
+      <b:widget-setting name='text-31'>Slice of Life</b:widget-setting>
+      <b:widget-setting name='text-32'>Sports</b:widget-setting>
+      <b:widget-setting name='link-38'>search/label/Vampire</b:widget-setting>
+      <b:widget-setting name='text-26'>School Life</b:widget-setting>
+      <b:widget-setting name='link-35'>search/label/Tragedy</b:widget-setting>
+      <b:widget-setting name='text-27'>Sci-Fi</b:widget-setting>
+      <b:widget-setting name='link-34'>search/label/Thriller</b:widget-setting>
+      <b:widget-setting name='text-28'>Seinen</b:widget-setting>
+      <b:widget-setting name='link-37'>search/label/Vampire</b:widget-setting>
+      <b:widget-setting name='text-29'>Shoujo</b:widget-setting>
+      <b:widget-setting name='link-36'>search/label/Vampire</b:widget-setting>
+      <b:widget-setting name='text-22'>Music</b:widget-setting>
+      <b:widget-setting name='link-31'>search/label/Slice of Life</b:widget-setting>
+      <b:widget-setting name='text-23'>Mystery</b:widget-setting>
+      <b:widget-setting name='link-30'>search/label/Shounen</b:widget-setting>
+      <b:widget-setting name='text-24'>Psychological</b:widget-setting>
+      <b:widget-setting name='link-33'>search/label/Supernatural</b:widget-setting>
+      <b:widget-setting name='text-25'>Romance</b:widget-setting>
+      <b:widget-setting name='link-32'>search/label/Sports</b:widget-setting>
+      <b:widget-setting name='text-9'>Historical</b:widget-setting>
+      <b:widget-setting name='text-8'>Harem</b:widget-setting>
+      <b:widget-setting name='text-20'>Medical</b:widget-setting>
+      <b:widget-setting name='text-21'>Military</b:widget-setting>
+      <b:widget-setting name='text-1'>Max</b:widget-setting>
+      <b:widget-setting name='text-0'>Label</b:widget-setting>
+      <b:widget-setting name='text-3'>Cooking</b:widget-setting>
+      <b:widget-setting name='text-2'>Comedy</b:widget-setting>
+      <b:widget-setting name='text-5'>Ecchi</b:widget-setting>
+      <b:widget-setting name='text-4'>Drama</b:widget-setting>
+      <b:widget-setting name='text-7'>Game</b:widget-setting>
+      <b:widget-setting name='text-6'>Fantasy</b:widget-setting>
+      <b:widget-setting name='text-19'>Mecha</b:widget-setting>
+      <b:widget-setting name='text-15'>Manhwa</b:widget-setting>
+      <b:widget-setting name='text-16'>Martial Arts</b:widget-setting>
+      <b:widget-setting name='text-17'>Mature</b:widget-setting>
+      <b:widget-setting name='text-18'>Mecha</b:widget-setting>
+      <b:widget-setting name='text-11'>Isekai</b:widget-setting>
+      <b:widget-setting name='text-12'>Josei</b:widget-setting>
+      <b:widget-setting name='text-13'>Magic</b:widget-setting>
+      <b:widget-setting name='text-14'>Manhua</b:widget-setting>
+      <b:widget-setting name='text-10'>Horror</b:widget-setting>
+      <b:widget-setting name='link-17'>/search/label/Mature</b:widget-setting>
+      <b:widget-setting name='link-16'>/search/label/Martial Arts</b:widget-setting>
+      <b:widget-setting name='link-19'>/search/label/Mecha</b:widget-setting>
+      <b:widget-setting name='sorting'>NONE</b:widget-setting>
+      <b:widget-setting name='link-18'>/search/label/Mecha</b:widget-setting>
+      <b:widget-setting name='link-1'>6</b:widget-setting>
+      <b:widget-setting name='link-13'>/search/label/Magic</b:widget-setting>
+      <b:widget-setting name='link-2'>/search/label/Comedy</b:widget-setting>
+      <b:widget-setting name='link-12'>/search/label/Josei</b:widget-setting>
+      <b:widget-setting name='link-15'>/search/label/Manhwa</b:widget-setting>
+      <b:widget-setting name='link-0'>Series</b:widget-setting>
+      <b:widget-setting name='link-14'>/search/label/Manhua</b:widget-setting>
+      <b:widget-setting name='link-11'>/search/label/Isekai</b:widget-setting>
+      <b:widget-setting name='link-10'>/search/label/Horror</b:widget-setting>
+      <b:widget-setting name='link-9'>/search/label/Historical</b:widget-setting>
+      <b:widget-setting name='link-7'>/search/label/Game</b:widget-setting>
+      <b:widget-setting name='link-8'>/search/label/Harem</b:widget-setting>
+      <b:widget-setting name='link-5'>/search/label/Ecchi</b:widget-setting>
+      <b:widget-setting name='link-6'>/search/label/Fantasy</b:widget-setting>
+      <b:widget-setting name='link-3'>/search/label/Cooking</b:widget-setting>
+      <b:widget-setting name='link-4'>/search/label/Drama</b:widget-setting>
+      <b:widget-setting name='link-28'>search/label/Seinen</b:widget-setting>
+      <b:widget-setting name='link-27'>search/label/Sci-Fi</b:widget-setting>
+      <b:widget-setting name='link-29'>search/label/Shoujo</b:widget-setting>
+      <b:widget-setting name='link-24'>search/label/Psychological</b:widget-setting>
+      <b:widget-setting name='text-37'>Vampire</b:widget-setting>
+      <b:widget-setting name='link-23'>/search/label/Mystery</b:widget-setting>
+      <b:widget-setting name='text-38'>Vampire</b:widget-setting>
+      <b:widget-setting name='link-26'>search/label/School Life</b:widget-setting>
+      <b:widget-setting name='link-25'>search/label/Romance</b:widget-setting>
+      <b:widget-setting name='link-20'>/search/label/Medical</b:widget-setting>
+      <b:widget-setting name='text-33'>Supernatural</b:widget-setting>
+      <b:widget-setting name='text-34'>Thriller</b:widget-setting>
+      <b:widget-setting name='link-22'>/search/label/Music</b:widget-setting>
+      <b:widget-setting name='text-35'>Tragedy</b:widget-setting>
+      <b:widget-setting name='link-21'>/search/label/Military</b:widget-setting>
+      <b:widget-setting name='text-36'>Vampire</b:widget-setting>
+   </b:widget-settings>
+   <b:includable id='main'>
+      <b:include name='content'/>
+   </b:includable>
+   <b:includable id='content'>
+      <style>
+         .loaderKu{width:48px;height:48px;border:5px solid #ff6740;border-bottom-color:transparent;border-radius:50%;display:inline-block;box-sizing:border-box;animation:rotation 1s linear infinite;}
+         @keyframes rotation{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+         .relative.h-56.overflow-hidden.lg\:h-80.xl\:h-96:after{content:&#39;&#39;;background-color:rgba(0,0,0,.7);width:100%;height:100%;display:block;position:absolute;}
+         #Slider_Post .owl-nav button{outline:none;position:absolute;border:none!important;color:#333!important;background:hsla(0,0%,100%,.6)!important;top:50%;transform:translateY(-50%);border-radius:10px;width:40px;height:40px;line-height:40px;font-size:50px!important;}
+         #Slider_Post .owl-nav button:hover{background:#fff!important;}
+         #Slider_Post .owl-nav button.owl-prev{left:20px;}
+         #Slider_Post .owl-nav button.owl-next{right:20px;}
+         #Slider_Post .owl-dots{position:absolute;width:100%;bottom:20px;display:flex;justify-content:center;}
+         #Slider_Post .owl-dots button{display:inline-block;width:10px;height:10px;margin:0 5px;background:#fff!important;border-radius:50%;opacity:.5;cursor:pointer!important;}
+         #Slider_Post .owl-dots button.active{opacity:1;width:20px;border-radius:15px;}
+         #Slider_Post .owl-nav button &gt;*{width:40px;height:40px;display:block;margin-top:-5px;}
+      </style>
+      <b:tag class='swiper slider_Manga_Reader swiper-fade swiper-initialized swiper-horizontal swiper-watch-progress swiper-backface-hidden' name='div'>
+         <b:attr name='id' value='Slider_Post'/>
+         <b:loop values='data:links' var='link'>
+            <b:attr cond='data:link.name == &quot;Label&quot;' expr:value='data:link.target' name='data-label'/>
+            <b:attr cond='data:link.name == &quot;Max&quot;' expr:value='data:link.target' name='data-max'/>
+         </b:loop>
+         <b:tag name='span'>
+            <b:class name='flex items-center justify-center p-3'/>
+            <b:tag name='span'>
+               <b:class name='loaderKu'/>
+            </b:tag>
+         </b:tag>
+      </b:tag>
+   </b:includable>
+</b:widget>
+
+
+<b:if cond='data:view.isHomepage'>
+  <script>/*<![CDATA[*/
+
+//Slider Post
+let custompost1 = new BloggerScript({
+  noImage: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjiP3fv0tDo7NS8myFq9RIqlLVFIb_4zXtyBvW1NQnySs8tAQqe70WbM7B71AcBWfWtBBPgHXNPsiLMhl3-IeD84sVoZd33xCcv2FckoTnIu6LIO4qJ4lMOYep4h6tHlmuRaFCy_qc_V0Jh/s0/No+Image+Berkas+Kita.jpg",
+  sizeImage: "s720-rw"
+});
+
+function getCustomPost1(response) {
+  const feed = custompost1.getFeed(response);
+  if (!feed || feed.length === 0) return;
+
+  // Buat container untuk slider
+  let sliderContainer = document.createElement('div');
+  sliderContainer.className = 'slider-container';
+
+  // Buat wrapper untuk konten
+  let carouselContent = '<div class="swiper-wrapper">';
+  
+  feed.forEach(post => {
+    let synopsis = "No Synopsis";
+    if (post.content) {
+      let tempDiv = document.createElement("div");
+      tempDiv.innerHTML = post.content;
+      let synopsisElement = tempDiv.querySelector("#synopsis");
+      synopsis = synopsisElement ? synopsisElement.innerText.slice(0, 200) : synopsis;
+    }
+
+    carouselContent += `
+      <div class="swiper-slide">
+        <div class="box_item">
+            <a class="bg_item">
+              <img src="${post.image}" class="blur-md absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="${post.title}" />
+            </a>
+          <div class="poster_item">
+            <a href="${post.link}">
+              <img src="${post.image}" alt="${post.title}" />
+            </a>
+          </div>
+          <div class="content_item">
+            <div class="content_item_title">
+              <a title="${post.title}" href="${post.link}">${post.title}</a>
+            </div>
+            <div class="content_item_details">
+              <div class="content_item_details_des">
+                ${synopsis}
+              </div>`;
+
+    if (post.label && post.label.length > 0) {
+      carouselContent += '<div class="content_item_details_genre">';
+      post.label.forEach(label => {
+        carouselContent += `<span>${label}</span>`;
+      });
+      carouselContent += '</div>';
+    }
+
+    carouselContent += `
+            </div>
+            <div class="content_item_buttons">
+              <a href="${post.link}" class="content_item_buttons_read">View Info</a>
+              <a href="/search/label/Series" class="content_item_buttons_view">More Series</a>
+            </div>
+          </div>
+        </div>
+      </div>`;
+  });
+
+  carouselContent += '</div>';
+  
+  const sliderElement = document.getElementById('Slider_Post');
+  if (sliderElement) {
+    // Tambahkan konten dan navigasi terpisah
+    sliderElement.innerHTML = `
+      ${carouselContent}
+      <div class="boox_bt">
+        <div class="swiper-button swiper-bt-prev">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/>
+          </svg>
+        </div>
+        <div class="swiper-button swiper-bt-next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
+          </svg>
+        </div>
+      </div>`;
+    
+    // Inisialisasi Swiper
+    new Swiper('#Slider_Post', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-bt-next',
+        prevEl: '.swiper-bt-prev',
+      }
+    });
+  }
+}
+
+const sliderElement = document.getElementById('Slider_Post');
+if (sliderElement) {
+  const label = sliderElement.dataset.label || false;
+  const maxResults = sliderElement.dataset.max || "6";
+  
+  custompost1.xhr(
+    `/feeds/posts/default${label ? `/-/${label}` : ''}?alt=json-in-script&max-results=${maxResults}`,
+    getCustomPost1
+  );
+}
+  /*]]>*/</script>
+    </b:if>
